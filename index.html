@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Control Center</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta http-equiv="refresh" content="3">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="card">
+
+    <h1>🖥️ Control Center</h1>
+
+    <p class="status">
+        🟢 Online • Updated {{ current_time }}
+    </p>
+
+    <div class="stat">
+        <div class="row">
+            <span>⚡ CPU</span>
+            <span>{{ cpu }}%</span>
+        </div>
+
+        <div class="bar">
+            <div class="fill" style="width: {{ cpu }}%"></div>
+        </div>
+    </div>
+
+    <div class="stat">
+        <div class="row">
+            <span>💾 RAM</span>
+            <span>{{ ram }}%</span>
+        </div>
+
+        <div class="bar">
+            <div class="fill" style="width: {{ ram }}%"></div>
+        </div>
+    </div>
+
+    <div class="stat">
+        <div class="row">
+            <span>📦 DISK</span>
+            <span>{{ disk_percent }}%</span>
+        </div>
+
+        <div class="bar">
+            <div class="fill" style="width: {{ disk_percent }}%"></div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <span>💽 Free Space</span>
+        <span>{{ disk_free }} GB</span>
+    </div>
+
+    <div class="row">
+        <span>🌐 IP Address</span>
+        <span>{{ ip_address }}</span>
+    </div>
+
+    <div class="row">
+        <span>🖥️ PC Name</span>
+        <span>{{ hostname }}</span>
+    </div>
+
+    <div class="row">
+        <span>⏱️ Uptime</span>
+        <span>{{ uptime }}</span>
+    </div>
+
+    <div class="row">
+        <span>📅 Date</span>
+        <span>{{ current_date }}</span>
+    </div>
+
+    <div class="row">
+        <span>🕒 Time</span>
+        <span>{{ current_time }}</span>
+    </div>
+
+    <div class="buttons">
+
+        <a class="btn restart"
+           href="/restart"
+           onclick="return confirm('Restart PC ?')">
+           🔄 Restart
+        </a>
+
+        <a class="btn shutdown"
+           href="/shutdown"
+           onclick="return confirm('Shutdown PC ?')">
+           ⛔ Shutdown
+        </a>
+
+    </div>
+ 
+<div class="buttons">
+
+    <a class="btn restart" href="/logout">
+        🚪 Logout
+    </a>
+
+</div>
+
+</div>
+
+</body>
+</html>
